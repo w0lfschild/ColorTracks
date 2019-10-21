@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB422DEF235C34A300963135 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB422DEE235C34A300963135 /* AppKit.framework */; };
+		FB422DF1235C34A300963135 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB422DF0235C34A300963135 /* Foundation.framework */; };
+		FB422DF8235C34A300963135 /* ColorTracks.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422DF7235C34A300963135 /* ColorTracks.m */; };
+		FB422DFC235C34A300963135 /* ZKSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422DFB235C34A300963135 /* ZKSwizzle.m */; };
+		FB422E16235C4CE600963135 /* SLColorArt.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422E15235C4CE600963135 /* SLColorArt.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FB422DEB235C34A300963135 /* ColorTracks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTracks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB422DEE235C34A300963135 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		FB422DF0235C34A300963135 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		FB422DF6235C34A300963135 /* ColorTracks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorTracks.h; sourceTree = "<group>"; };
+		FB422DF7235C34A300963135 /* ColorTracks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorTracks.m; sourceTree = "<group>"; };
+		FB422DFA235C34A300963135 /* ZKSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKSwizzle.h; sourceTree = "<group>"; };
+		FB422DFB235C34A300963135 /* ZKSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKSwizzle.m; sourceTree = "<group>"; };
+		FB422E05235C3A7D00963135 /* NPWNowPlayingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPWNowPlayingController.h; sourceTree = "<group>"; };
+		FB422E06235C3A7D00963135 /* NSExtensionRequestHandling-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSExtensionRequestHandling-Protocol.h"; sourceTree = "<group>"; };
+		FB422E07235C3A7D00963135 /* NSObject-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject-Protocol.h"; sourceTree = "<group>"; };
+		FB422E08235C3A7D00963135 /* NPWNowPlayingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPWNowPlayingViewController.h; sourceTree = "<group>"; };
+		FB422E09235C3A7E00963135 /* NPWScrubberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPWScrubberCell.h; sourceTree = "<group>"; };
+		FB422E0A235C3A7E00963135 /* NPWScrubber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPWScrubber.h; sourceTree = "<group>"; };
+		FB422E0B235C3A7E00963135 /* NSFont-NPWAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFont-NPWAdditions.h"; sourceTree = "<group>"; };
+		FB422E0C235C3A7E00963135 /* NCWidgetProviding-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCWidgetProviding-Protocol.h"; sourceTree = "<group>"; };
+		FB422E0D235C3A7E00963135 /* CDStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
+		FB422E14235C4CE600963135 /* SLColorArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLColorArt.h; sourceTree = "<group>"; };
+		FB422E15235C4CE600963135 /* SLColorArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLColorArt.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB422DE8235C34A300963135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB422DEF235C34A300963135 /* AppKit.framework in Frameworks */,
+				FB422DF1235C34A300963135 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB422DE2235C34A300963135 = {
+			isa = PBXGroup;
+			children = (
+				FB422DF2235C34A300963135 /* ColorTracks */,
+				FB422DED235C34A300963135 /* Frameworks */,
+				FB422DEC235C34A300963135 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB422DEC235C34A300963135 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB422DEB235C34A300963135 /* ColorTracks.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB422DED235C34A300963135 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB422DEE235C34A300963135 /* AppKit.framework */,
+				FB422DF0235C34A300963135 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB422DF2235C34A300963135 /* ColorTracks */ = {
+			isa = PBXGroup;
+			children = (
+				FB422DF9235C34A300963135 /* ZKSwizzle */,
+				FB422E17235C4FA000963135 /* SLColorArt */,
+				FB422E0E235C3A8500963135 /* NowPlayingHeaders */,
+				FB422DF6235C34A300963135 /* ColorTracks.h */,
+				FB422DF7235C34A300963135 /* ColorTracks.m */,
+			);
+			path = ColorTracks;
+			sourceTree = "<group>";
+		};
+		FB422DF9235C34A300963135 /* ZKSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				FB422DFA235C34A300963135 /* ZKSwizzle.h */,
+				FB422DFB235C34A300963135 /* ZKSwizzle.m */,
+			);
+			path = ZKSwizzle;
+			sourceTree = "<group>";
+		};
+		FB422E0E235C3A8500963135 /* NowPlayingHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				FB422E0D235C3A7E00963135 /* CDStructures.h */,
+				FB422E0C235C3A7E00963135 /* NCWidgetProviding-Protocol.h */,
+				FB422E05235C3A7D00963135 /* NPWNowPlayingController.h */,
+				FB422E08235C3A7D00963135 /* NPWNowPlayingViewController.h */,
+				FB422E0A235C3A7E00963135 /* NPWScrubber.h */,
+				FB422E09235C3A7E00963135 /* NPWScrubberCell.h */,
+				FB422E06235C3A7D00963135 /* NSExtensionRequestHandling-Protocol.h */,
+				FB422E0B235C3A7E00963135 /* NSFont-NPWAdditions.h */,
+				FB422E07235C3A7D00963135 /* NSObject-Protocol.h */,
+			);
+			path = NowPlayingHeaders;
+			sourceTree = "<group>";
+		};
+		FB422E17235C4FA000963135 /* SLColorArt */ = {
+			isa = PBXGroup;
+			children = (
+				FB422E14235C4CE600963135 /* SLColorArt.h */,
+				FB422E15235C4CE600963135 /* SLColorArt.m */,
+			);
+			path = SLColorArt;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB422DEA235C34A300963135 /* ColorTracks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB422E01235C34A300963135 /* Build configuration list for PBXNativeTarget "ColorTracks" */;
+			buildPhases = (
+				FB422DE7235C34A300963135 /* Sources */,
+				FB422DE8235C34A300963135 /* Frameworks */,
+				FB422DE9235C34A300963135 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorTracks;
+			productName = ColorTracks;
+			productReference = FB422DEB235C34A300963135 /* ColorTracks.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB422DE3235C34A300963135 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Wolfgang Baird";
+				TargetAttributes = {
+					FB422DEA235C34A300963135 = {
+						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
+					};
+				};
+			};
+			buildConfigurationList = FB422DE6235C34A300963135 /* Build configuration list for PBXProject "ColorTracks" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB422DE2235C34A300963135;
+			productRefGroup = FB422DEC235C34A300963135 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB422DEA235C34A300963135 /* ColorTracks */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB422DE9235C34A300963135 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB422DE7235C34A300963135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB422DF8235C34A300963135 /* ColorTracks.m in Sources */,
+				FB422DFC235C34A300963135 /* ZKSwizzle.m in Sources */,
+				FB422E16235C4CE600963135 /* SLColorArt.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FB422DFF235C34A300963135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		FB422E00235C34A300963135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+			};
+			name = Release;
+		};
+		FB422E02235C34A300963135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DEVELOPMENT_TEAM = EX596BNL45;
+				DSTROOT = /;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ColorTracks/PrefixHeader.pch;
+				INFOPLIST_FILE = ColorTracks/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/MacEnhance/Plugins";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.macenhance.ColorTracks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorTracks/ColorTracks-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FB422E03235C34A300963135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DEVELOPMENT_TEAM = EX596BNL45;
+				DSTROOT = /;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ColorTracks/PrefixHeader.pch;
+				INFOPLIST_FILE = ColorTracks/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/MacEnhance/Plugins";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.macenhance.ColorTracks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorTracks/ColorTracks-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB422DE6235C34A300963135 /* Build configuration list for PBXProject "ColorTracks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB422DFF235C34A300963135 /* Debug */,
+				FB422E00235C34A300963135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB422E01235C34A300963135 /* Build configuration list for PBXNativeTarget "ColorTracks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB422E02235C34A300963135 /* Debug */,
+				FB422E03235C34A300963135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB422DE3235C34A300963135 /* Project object */;
+}

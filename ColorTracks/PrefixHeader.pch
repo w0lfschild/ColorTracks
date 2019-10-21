@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  ColorTracks
+//
+//  Created by Wolfgang Baird on 10/19/19.
+//Copyright © 2019 Wolfgang Baird. All rights reserved.
+//
+
+#ifndef ColorTracks_PrefixHeader_pch
+#define ColorTracks_PrefixHeader_pch
+
+#import <Cocoa/Cocoa.h>
+#import "ZKSwizzle.h"
+
+#endif
+
