@@ -1,6 +1,6 @@
 # ColorTracks
  
-![preview](Media/01.gif) 
+![preview](Media/03.png) 
 
 # Information:
 
