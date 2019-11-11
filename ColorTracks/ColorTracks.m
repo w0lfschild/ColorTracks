@@ -10,6 +10,8 @@
 
 #import "ColorTracks.h"
 #import "SLColorArt.h"
+#import "CT_ScrollingTextView.h"
+#import "AYProgressIndicator.h"
 
 #import "NPWScrubber.h"
 //#import "NPWNowPlayingController.h"
@@ -17,6 +19,11 @@
 #import <QuartzCore/QuartzCore.h>
 
 ColorTracks *plugin;
+NSImage  *currentImage;
+NSString *currentTrack;
+CT_ScrollingTextView *scrollTxt;
+AYProgressIndicator *colorProgress;
+SLColorArt *currentArt;
 
 @interface NSImage (ImageAdditions)
 @end
@@ -35,106 +42,7 @@ ColorTracks *plugin;
 
 @end
 
-@interface ScrollingTextView : NSView {
-    NSTimer * scroller;
-    NSPoint point;
-    NSString * text;
-    NSAttributedString * atttext;
-    NSTimeInterval speed;
-    CGFloat stringWidth;
-}
 
-@property (nonatomic, copy) NSString * text;
-@property (nonatomic) NSTimeInterval speed;
-
-@end
-
-@implementation ScrollingTextView
-
-@synthesize text;
-@synthesize speed;
-
-- (void) dealloc {
-    [scroller invalidate];
-}
-
-- (void) setText:(NSString *)newText {
-    text = [newText copy];
-    point = NSZeroPoint;
-
-    stringWidth = [newText sizeWithAttributes:nil].width;
-
-    if (scroller == nil && speed > 0 && text != nil) {
-        scroller = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(moveText:) userInfo:nil repeats:YES];
-    }
-}
-
-- (void) setAttributedText:(NSAttributedString *)newText {
-    atttext = [newText copy];
-    point = NSZeroPoint;
-    
-    stringWidth = atttext.size.width;
-
-    if (scroller == nil && speed > 0 && atttext != nil) {
-        scroller = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(moveText:) userInfo:nil repeats:YES];
-    }
-}
-
-- (void) setSpeed:(NSTimeInterval)newSpeed {
-    if (newSpeed != speed) {
-        speed = newSpeed;
-
-        [scroller invalidate];
-        scroller = nil;
-        if (speed > 0 && atttext != nil) {
-            scroller = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(moveText:) userInfo:nil repeats:YES];
-        } else if (speed > 0 && text != nil) {
-            scroller = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(moveText:) userInfo:nil repeats:YES];
-        }
-    }
-}
-
-- (void) moveText:(NSTimer *)timer {
-    point.x = point.x - 1.0f;
-    [self setNeedsDisplay:YES];
-}
-
-- (void)drawRect:(NSRect)dirtyRect {
-    // Drawing code here.
-
-//    NSLog(@"ColorTracks : %f : %f", stringWidth, dirtyRect.size.width);
-    
-    if (stringWidth > dirtyRect.size.width) {
-        dirtyRect.size.width = stringWidth;
-    }
-            
-    if (point.x + stringWidth < 0) {
-        if (stringWidth > dirtyRect.size.width) {
-            point.x += stringWidth;
-        } else {
-            point.x += dirtyRect.size.width;
-        }
-//        point.x += dirtyRect.size.width;
-    }
-    
-    [atttext drawAtPoint:point];
-//    [text drawAtPoint:point withAttributes:nil];
-
-    if (point.x < 0) {
-        NSPoint otherPoint = point;
-        
-        if (stringWidth > dirtyRect.size.width) {
-            otherPoint.x += stringWidth;
-        } else {
-            otherPoint.x += dirtyRect.size.width;
-        }
-        
-        [atttext drawAtPoint:otherPoint];
-//        [text drawAtPoint:otherPoint withAttributes:nil];
-    }
-}
-
-@end
 
 @interface ColorTracks_NPWNowPlayingViewController : NSViewController
 {
@@ -148,12 +56,6 @@ ColorTracks *plugin;
     NSTextField *_remainingTimeTextField;
     NSTextField *_elapsedTimeTextField;
     NPWScrubber *_scrubber;
-    
-    // ColorTracks
-    NSImage  *currentImage;
-    NSString *currentTrack;
-    ScrollingTextView *scrollTxt;
-
 //    NPWNowPlayingController *_nowPlayingController;
 }
 //@property(retain, nonatomic) NPWNowPlayingController *nowPlayingController;
@@ -187,32 +89,101 @@ ColorTracks *plugin;
     
     _remainingTimeTextField.textColor = secondary;
     _elapsedTimeTextField.textColor = secondary;
+    
+    if (colorProgress) {
+        [colorProgress setProgressColor:primary];
+        [colorProgress setEmptyColor:secondary];
+    }
 }
 
-- (void)goUp:(NSView*)v {
-    if (v.superview) {
-        [self goUp:v.superview];
+- (void)adjustViewToMatch {
+    if (_albumImageView.image) {
+                        
+        // Has albumn image
+        if ([[self valueForKey:@"nowPlayingController"] valueForKey:@"albumImage"]) {
+            
+            // Only call once per track
+            if (![currentImage isEqualTo:_albumImageView.image]) {
+            
+                currentImage = _albumImageView.image;
+                
+                currentArt = [[SLColorArt alloc] initWithImage:currentImage scaledSize:NSMakeSize(100., 100.)];
+//                self.view.layer.contents = colorArt.scaledImage;
+                self.view.layer.backgroundColor = [currentArt.backgroundColor colorWithAlphaComponent:1.0].CGColor;
+
+                [_scanBackwardButton setImage:[_scanBackwardButton.image imageTintedWithColor:currentArt.primaryColor]];
+                [_scanForwardButton setImage:[_scanForwardButton.image imageTintedWithColor:currentArt.primaryColor]];
+
+                [_playPauseButton setImage:[_playPauseButton.image imageTintedWithColor:currentArt.primaryColor]];
+                [_playPauseButton setAlternateImage:[_playPauseButton.alternateImage imageTintedWithColor:currentArt.primaryColor]];
+
+                _trackTextField.textColor = currentArt.primaryColor;
+                _artistTextField.textColor = currentArt.secondaryColor;
+
+                _remainingTimeTextField.textColor = currentArt.detailColor;
+                _elapsedTimeTextField.textColor = currentArt.detailColor;
+                
+                if (_trackTextField.attributedStringValue.length > 0)
+                    [scrollTxt setAttributedText:_trackTextField.attributedStringValue];
+            }
+            
+            // Adjust the progress color just incase
+            if (currentArt) {
+                [colorProgress setProgressColor:currentArt.primaryColor];
+                [colorProgress setEmptyColor:currentArt.secondaryColor];
+            }
+            
+        } else {
+            
+            // No albumn art so set to fit well with systm color
+            [self adjustWithSystemColor];
+        
+        }
+        
     } else {
-        [self goDown:v];
-        v.wantsLayer = true;
-        v.layer.backgroundColor = NSColor.redColor.CGColor;
+        
+        // No albumn art so set to fit well with systm color
+        [self adjustWithSystemColor];
+        
     }
 }
 
-- (void)goDown:(NSView*)v {
-    for (NSView *sv in v.subviews) {
-        sv.wantsLayer = true;
-        sv.layer.backgroundColor = NSColor.redColor.CGColor;
-        [self goDown:sv];
-        NSLog(@"ColorTracks : %@", v);
+- (void)_updateScrubber {
+    ZKOrig(void);
+    
+    if (!colorProgress) {
+        //    {{16, 67}, {288, 6}}
+        NSRect indiFrame = CGRectMake(16, 69, 288, 2);
+        colorProgress = [[AYProgressIndicator alloc] initWithFrame:indiFrame
+                                            progressColor:[NSColor systemPinkColor]
+                                               emptyColor:[NSColor systemBlueColor]
+                                                 minValue:0
+                                                 maxValue:1
+                                             currentValue:0];
+        [colorProgress setHidden:NO];
+        [colorProgress setWantsLayer:YES];
+        [colorProgress.layer setCornerRadius:2];
+        [[self view] addSubview:colorProgress];
+        [[self view] addSubview:colorProgress positioned:NSWindowBelow relativeTo:_scrubber];
     }
+    
+    [self adjustViewToMatch];
+    
+    [_scrubber setAlphaValue:0];
+    colorProgress.doubleValue = _scrubber.doubleValue / _scrubber.maxValue;
+}
+
+- (void)_scrubberDragged:(id)arg1 {
+//    NSLog(@"colortracks : %@", arg1);
+    colorProgress.doubleValue = _scrubber.doubleValue / _scrubber.maxValue;
+    ZKOrig(void, arg1);
 }
 
 - (void)_updateArtistAndTrackName {
     ZKOrig(void);
 
     if (!scrollTxt) {
-        scrollTxt = [[ScrollingTextView alloc] init];
+        scrollTxt = [[CT_ScrollingTextView alloc] init];
         [scrollTxt setFrame:_trackTextField.frame];
         [_trackTextField.superview addSubview:scrollTxt];
         [scrollTxt setText:@""];
@@ -228,7 +199,7 @@ ColorTracks *plugin;
     CGRect frm = _trackTextField.frame;
     frm.origin = CGPointMake(0, 21);
     [scrollTxt setFrame:frm];
-        
+
     if (truncating) {
         [scrollTxt setHidden:false];
         [_trackTextField setHidden:true];
@@ -240,48 +211,7 @@ ColorTracks *plugin;
 
 - (void)_updateAlbumImage {
     ZKOrig(void);
-        
-    if (_albumImageView.image) {
-                    
-        // Has albumn image
-        if ([[self valueForKey:@"nowPlayingController"] valueForKey:@"albumImage"]) {
-            
-            // Only call once per track
-            if (![currentImage isEqualTo:_albumImageView.image]) {
-                currentImage = _albumImageView.image;
-                SLColorArt *colorArt = [[SLColorArt alloc] initWithImage:currentImage scaledSize:NSMakeSize(100., 100.)];
-                //        self.imageView.image = colorArt.scaledImage;
-                self.view.layer.backgroundColor = [colorArt.backgroundColor colorWithAlphaComponent:0.22].CGColor;
-                
-                [_scanBackwardButton setImage:[_scanBackwardButton.image imageTintedWithColor:colorArt.primaryColor]];
-                [_scanForwardButton setImage:[_scanForwardButton.image imageTintedWithColor:colorArt.primaryColor]];
-                
-                [_playPauseButton setImage:[_playPauseButton.image imageTintedWithColor:colorArt.primaryColor]];
-                [_playPauseButton setAlternateImage:[_playPauseButton.alternateImage imageTintedWithColor:colorArt.primaryColor]];
-                
-                _trackTextField.textColor = colorArt.primaryColor;
-                _artistTextField.textColor = colorArt.secondaryColor;
-                
-                _remainingTimeTextField.textColor = colorArt.detailColor;
-                _elapsedTimeTextField.textColor = colorArt.detailColor;
-                
-                if (_trackTextField.attributedStringValue.length > 0)
-                    [scrollTxt setAttributedText:_trackTextField.attributedStringValue];
-            }
-            
-        } else {
-            
-            // No aldumn art so set to fit well with systm color
-            [self adjustWithSystemColor];
-        
-        }
-        
-    } else {
-        
-        // No aldumn art so set to fit well with systm color
-        [self adjustWithSystemColor];
-        
-    }
+    [self adjustViewToMatch];
 }
 
 @end
