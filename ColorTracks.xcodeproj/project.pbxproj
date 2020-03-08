@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F37E2A16241596940061C8BB /* EQImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = F37E2A0E241596930061C8BB /* EQImage+Scale.m */; };
+		F37E2A17241596940061C8BB /* EQImage+ColorArt.m in Sources */ = {isa = PBXBuildFile; fileRef = F37E2A10241596930061C8BB /* EQImage+ColorArt.m */; };
+		F37E2A18241596940061C8BB /* EQImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = F37E2A11241596930061C8BB /* EQImage+Helper.m */; };
+		F37E2A19241596940061C8BB /* SLColorArt.m in Sources */ = {isa = PBXBuildFile; fileRef = F37E2A14241596930061C8BB /* SLColorArt.m */; };
 		FB422DEF235C34A300963135 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB422DEE235C34A300963135 /* AppKit.framework */; };
 		FB422DF1235C34A300963135 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB422DF0235C34A300963135 /* Foundation.framework */; };
 		FB422DF8235C34A300963135 /* ColorTracks.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422DF7235C34A300963135 /* ColorTracks.m */; };
 		FB422DFC235C34A300963135 /* ZKSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422DFB235C34A300963135 /* ZKSwizzle.m */; };
-		FB422E16235C4CE600963135 /* SLColorArt.m in Sources */ = {isa = PBXBuildFile; fileRef = FB422E15235C4CE600963135 /* SLColorArt.m */; };
 		FBD75B442379F32200A37680 /* AYProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD75B422379F32200A37680 /* AYProgressIndicator.m */; };
 		FBD75B48237A15EC00A37680 /* CT_ScrollingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD75B47237A15EC00A37680 /* CT_ScrollingTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F37E2A0D241596930061C8BB /* SLTypeAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTypeAliases.h; sourceTree = "<group>"; };
+		F37E2A0E241596930061C8BB /* EQImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EQImage+Scale.m"; sourceTree = "<group>"; };
+		F37E2A0F241596930061C8BB /* EQImage+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EQImage+Helper.h"; sourceTree = "<group>"; };
+		F37E2A10241596930061C8BB /* EQImage+ColorArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EQImage+ColorArt.m"; sourceTree = "<group>"; };
+		F37E2A11241596930061C8BB /* EQImage+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EQImage+Helper.m"; sourceTree = "<group>"; };
+		F37E2A12241596930061C8BB /* SLColorArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLColorArt.h; sourceTree = "<group>"; };
+		F37E2A13241596930061C8BB /* EQImage+ColorArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EQImage+ColorArt.h"; sourceTree = "<group>"; };
+		F37E2A14241596930061C8BB /* SLColorArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLColorArt.m; sourceTree = "<group>"; };
+		F37E2A15241596940061C8BB /* EQImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EQImage+Scale.h"; sourceTree = "<group>"; };
+		F37E2A1A241599BA0061C8BB /* Spotify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
 		FB422DEB235C34A300963135 /* ColorTracks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTracks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB422DEE235C34A300963135 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		FB422DF0235C34A300963135 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -33,8 +46,6 @@
 		FB422E0B235C3A7E00963135 /* NSFont-NPWAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFont-NPWAdditions.h"; sourceTree = "<group>"; };
 		FB422E0C235C3A7E00963135 /* NCWidgetProviding-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCWidgetProviding-Protocol.h"; sourceTree = "<group>"; };
 		FB422E0D235C3A7E00963135 /* CDStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
-		FB422E14235C4CE600963135 /* SLColorArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLColorArt.h; sourceTree = "<group>"; };
-		FB422E15235C4CE600963135 /* SLColorArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLColorArt.m; sourceTree = "<group>"; };
 		FBD75B422379F32200A37680 /* AYProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYProgressIndicator.m; sourceTree = "<group>"; };
 		FBD75B432379F32200A37680 /* AYProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYProgressIndicator.h; sourceTree = "<group>"; };
 		FBD75B46237A15EC00A37680 /* CT_ScrollingTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CT_ScrollingTextView.h; sourceTree = "<group>"; };
@@ -83,6 +94,7 @@
 		FB422DF2235C34A300963135 /* ColorTracks */ = {
 			isa = PBXGroup;
 			children = (
+				F37E2A1A241599BA0061C8BB /* Spotify.h */,
 				FBD75B49237A196200A37680 /* ScrollingTextView */,
 				FBD75B452379F32700A37680 /* AYProgress */,
 				FB422DF9235C34A300963135 /* ZKSwizzle */,
@@ -122,8 +134,15 @@
 		FB422E17235C4FA000963135 /* SLColorArt */ = {
 			isa = PBXGroup;
 			children = (
-				FB422E14235C4CE600963135 /* SLColorArt.h */,
-				FB422E15235C4CE600963135 /* SLColorArt.m */,
+				F37E2A13241596930061C8BB /* EQImage+ColorArt.h */,
+				F37E2A10241596930061C8BB /* EQImage+ColorArt.m */,
+				F37E2A0F241596930061C8BB /* EQImage+Helper.h */,
+				F37E2A11241596930061C8BB /* EQImage+Helper.m */,
+				F37E2A15241596940061C8BB /* EQImage+Scale.h */,
+				F37E2A0E241596930061C8BB /* EQImage+Scale.m */,
+				F37E2A12241596930061C8BB /* SLColorArt.h */,
+				F37E2A14241596930061C8BB /* SLColorArt.m */,
+				F37E2A0D241596930061C8BB /* SLTypeAliases.h */,
 			);
 			path = SLColorArt;
 			sourceTree = "<group>";
@@ -216,9 +235,12 @@
 			files = (
 				FBD75B48237A15EC00A37680 /* CT_ScrollingTextView.m in Sources */,
 				FBD75B442379F32200A37680 /* AYProgressIndicator.m in Sources */,
+				F37E2A16241596940061C8BB /* EQImage+Scale.m in Sources */,
+				F37E2A18241596940061C8BB /* EQImage+Helper.m in Sources */,
+				F37E2A19241596940061C8BB /* SLColorArt.m in Sources */,
 				FB422DF8235C34A300963135 /* ColorTracks.m in Sources */,
 				FB422DFC235C34A300963135 /* ZKSwizzle.m in Sources */,
-				FB422E16235C4CE600963135 /* SLColorArt.m in Sources */,
+				F37E2A17241596940061C8BB /* EQImage+ColorArt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +373,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macenhance.ColorTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorTracks/ColorTracks-Bridging-Header.h";
@@ -382,7 +404,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macenhance.ColorTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorTracks/ColorTracks-Bridging-Header.h";

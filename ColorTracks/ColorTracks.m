@@ -13,6 +13,7 @@
 #import "CT_ScrollingTextView.h"
 #import "AYProgressIndicator.h"
 
+#import "Spotify.h"
 #import "NPWScrubber.h"
 //#import "NPWNowPlayingController.h"
 
@@ -97,17 +98,95 @@ SLColorArt *currentArt;
 }
 
 - (void)adjustViewToMatch {
+    
+//    NSObject *t = [self valueForKey:@"nowPlayingController"];
+//    NSString *name = [t valueForKey:@"appName"];
+////    NSLog(@"tacos : %@", name);
+//    
+//    if ([name isEqualToString:@"Spotify"]) {
+//        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+//            
+//            static dispatch_once_t onceToken;
+//            dispatch_once(&onceToken, ^{
+//                system("osascript -e 'tell application \"Spotify\" to pause'");
+//            });
+//                    
+//            SpotifyApplication *app = [SBApplication applicationWithBundleIdentifier:@"com.spotify.client"];
+//            SpotifyTrack *currentTrack = app.currentTrack;
+//            NSString *trackURL = currentTrack.spotifyUrl;
+//            NSString *combinedURL = [NSString stringWithFormat:@"https://embed.spotify.com/oembed/?url=%@", trackURL];
+//            NSURL *targetURL = [NSURL URLWithString:combinedURL];
+//            NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+//
+//            NSURLSession *session = [NSURLSession sharedSession];
+//            NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+//                                                    completionHandler:
+//                ^(NSData *data, NSURLResponse *response, NSError *error) {
+//                    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+//                    NSString *fixedString = [dataString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+//                    fixedString = [fixedString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+//                    NSArray *urlComponents = [fixedString componentsSeparatedByString:@","];
+//                    NSString *iconURL = @"";
+//                    if ([urlComponents count] >= 8)
+//                        iconURL = [urlComponents objectAtIndex:8];
+//                    NSArray *iconComponents = [iconURL componentsSeparatedByString:@":"];
+//                    NSString *iconURLFixed = [NSString stringWithFormat:@"https:%@", [iconComponents lastObject]];
+//                    NSImage *myImage = [[NSImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:iconURLFixed]]];
+//                    dispatch_async(dispatch_get_main_queue(), ^(void){
+//                       if (myImage) {
+//                           
+//                           [self->_albumImageView setImage:myImage];
+//                           
+//                           // Only call once per track
+//                           if (![currentImage isEqualTo:myImage]) {
+//                           
+//                               currentImage = myImage;
+//                               
+//                               currentArt = [SLColorArt.alloc initWithImage:currentImage];
+//               //                self.view.layer.contents = colorArt.scaledImage;
+//                               self.view.layer.backgroundColor = [currentArt.backgroundColor colorWithAlphaComponent:1.0].CGColor;
+//
+//                               [self->_scanBackwardButton setImage:[self->_scanBackwardButton.image imageTintedWithColor:currentArt.primaryColor]];
+//                               [self->_scanForwardButton setImage:[self->_scanForwardButton.image imageTintedWithColor:currentArt.primaryColor]];
+//
+//                               [self->_playPauseButton setImage:[self->_playPauseButton.image imageTintedWithColor:currentArt.primaryColor]];
+//                               [self->_playPauseButton setAlternateImage:[self->_playPauseButton.alternateImage imageTintedWithColor:currentArt.primaryColor]];
+//
+//                               self->_trackTextField.textColor = currentArt.primaryColor;
+//                               self->_artistTextField.textColor = currentArt.secondaryColor;
+//
+//                               self->_remainingTimeTextField.textColor = currentArt.detailColor;
+//                               self->_elapsedTimeTextField.textColor = currentArt.detailColor;
+//                               
+//                               if (self->_trackTextField.attributedStringValue.length > 0)
+//                                   [scrollTxt setAttributedText:self->_trackTextField.attributedStringValue];
+//                           }
+//                           
+//                           // Adjust the progress color just incase
+//                           if (currentArt) {
+//                               [colorProgress setProgressColor:currentArt.primaryColor];
+//                               [colorProgress setEmptyColor:currentArt.secondaryColor];
+//                           }
+//                               
+//                       }
+//                    });
+//                }];
+//
+//            [task resume];
+//        });
+//    }
+    
     if (_albumImageView.image) {
-                        
+
         // Has albumn image
         if ([[self valueForKey:@"nowPlayingController"] valueForKey:@"albumImage"]) {
-            
+
             // Only call once per track
             if (![currentImage isEqualTo:_albumImageView.image]) {
-            
+
                 currentImage = _albumImageView.image;
-                
-                currentArt = [[SLColorArt alloc] initWithImage:currentImage scaledSize:NSMakeSize(100., 100.)];
+
+                currentArt = [SLColorArt.alloc initWithImage:currentImage];
 //                self.view.layer.contents = colorArt.scaledImage;
                 self.view.layer.backgroundColor = [currentArt.backgroundColor colorWithAlphaComponent:1.0].CGColor;
 
@@ -122,29 +201,29 @@ SLColorArt *currentArt;
 
                 _remainingTimeTextField.textColor = currentArt.detailColor;
                 _elapsedTimeTextField.textColor = currentArt.detailColor;
-                
+
                 if (_trackTextField.attributedStringValue.length > 0)
                     [scrollTxt setAttributedText:_trackTextField.attributedStringValue];
             }
-            
+
             // Adjust the progress color just incase
             if (currentArt) {
                 [colorProgress setProgressColor:currentArt.primaryColor];
                 [colorProgress setEmptyColor:currentArt.secondaryColor];
             }
-            
+
         } else {
-            
+
             // No albumn art so set to fit well with systm color
             [self adjustWithSystemColor];
-        
+
         }
-        
+
     } else {
-        
+
         // No albumn art so set to fit well with systm color
         [self adjustWithSystemColor];
-        
+
     }
 }
 
