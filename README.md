@@ -8,7 +8,7 @@
 - Mainly designed to be used with [Todeska](https://github.com/jslegendre)
 - ColorTracks is a [MacForge](https://github.com/w0lfschild/MacForge) plugin that adds some features to Apples Now Playing Widget.
     - Color match controls to albumn art
-    - Color match backgorund to aldumn art
+    - Color match background to aldumn art
     - Scrolling track titles
 - Author: [w0lfschild](https://github.com/w0lfschild)
 
